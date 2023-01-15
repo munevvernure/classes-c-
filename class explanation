@@ -1,0 +1,56 @@
+#include <iostream>
+using namespace std;
+
+//the initial of the class name should be capital
+class Employee {
+//there is three access modifiers:private,public,protected.
+//if public mode is not used we can not be able to acces properties 
+public:     
+	string Name;
+	string Company;
+	int Age;
+	void IntroduceYourself() {
+		cout << "Name - " << Name << endl;
+		cout << "Company - " << Company << endl;
+		cout << "Age - " << Age << endl << endl;
+	}
+	//constructor
+	Employee(string name,string company, int age) {
+		Name = name;
+		Company = company;
+		Age = age;
+	}
+};
+int main()
+{
+	//by using this costructor we wont need to use the codeblocks below seperately
+	Employee employee1 = Employee("Munevver","SAU-Seng1",20); 
+	/*employee1.Name = "Munevver";
+	employee1.Company = "SAU-Seng1";
+	employee1.Age = 20; 
+	*/
+
+
+	//how to describe the behaviour of an employee?
+	//we can describe it with a class method which is basically a function. 
+	//so we are going to create a function inside the class Employee
+	employee1.IntroduceYourself(); // we can use this method in order to introduce the employee more than one time
+	
+	Employee employee2 = Employee("John", "SAU-Seng1", 26); //özellikleri bu costructrela ya da alttaki gibi tanımlayabiliriz
+	/*employee2.Name = "John";
+	employee2.Company = "SAU-Seng2";
+	employee2.Age = 26;
+	*/
+	employee2.IntroduceYourself();
+
+	//What would happen if we want to create more users?
+	//A constructer is a special type of method that is invoked each time that an object of a class is created 
+	//There is three rules to create a constructor 
+	//a constructor does not have a return type,
+	//a constructor has the same name with the class it belongs to
+	//a constructor must be public
+	//
+
+
+
+}
