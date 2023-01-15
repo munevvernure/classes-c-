@@ -1,0 +1,92 @@
+//Define a StringClass to be used in character string operations. In this class:
+//Define a string member variable that will hold a string. 
+//Define an assignString function that will take the string entered from the keyboard into the member variable
+//Define a convertToLower function to convert the information in the string member variable to completely lowercase
+//Define a convertToUpper function to convert the information in the string member variable to completely uppercase
+//Define a convertViceVersa function that converts lowercase if it is uppercase, or vice versa (such as Ali-> aLİ). 
+//Define a firstLetter function that converts the first letter of words to uppercase (space character must be checked ...)
+//Define a printReverse function, that prints the information in the string member variable in reverse
+
+#include <iostream>
+#include <string>
+#include <cstring> //Library for strlen() fuction
+#include <ctype.h> //library for character classification and transform functions.
+
+using namespace std;
+
+class StringClass {
+public:
+	string word;
+	void assignString() {
+		cout << "Type a word in order to apply neccesary operations: ";
+		cin >> word;
+		cout << endl;
+	}
+
+	void printReverse() {
+		cout << "String member variable in reverse: ";
+		for (int i = word.size(); i >= 0; i--) {
+			cout << word[i];
+		}
+		cout << endl;
+	}
+
+	void firstLetter() {
+		cout << "Converting the first letter of the string member to uppercase letter: ";
+		if (isspace(word[0]) == true)
+			word[1] = toupper(word[1]);
+		else {
+			word[0] = toupper(word[0]);
+			cout << word << endl;
+		}
+			
+	}
+
+	void convertViceVersa() {
+		cout << "String member variable in Vice versa: ";
+		for (int i = 0; i < word.size(); i++) {
+			if (isupper(word[i]) == true)
+				word[i] = tolower(word[i]);
+			else
+				word[i] = toupper(word[i]);
+		}
+		cout << word << endl;
+
+	}
+
+	void convertToLower() {
+		cout << "String member variable in lowercase: ";
+		for (int i = 0; i < word.size(); i++) {
+			word[i] = tolower(word[i]);
+			cout << word[i];
+		}
+		cout << endl;
+	}
+
+	void convertToUpper() {
+		cout << "String member variable in uppercase: ";
+		for (int i = 0; i < word.size(); i++) {
+			word[i] = toupper(word[i]);
+			cout << word[i];
+		}
+		cout << endl;
+
+	}
+
+	
+
+	
+	
+
+
+
+};
+int main() {
+	StringClass entrdWord;
+	entrdWord.assignString();
+	entrdWord.printReverse();
+	entrdWord.firstLetter();
+	entrdWord.convertViceVersa();
+	entrdWord.convertToLower();
+	entrdWord.convertToUpper();
+}
