@@ -1,0 +1,64 @@
+//Define a PrimeNumber class. In this class:
+//The inputNumber function should provide a value to the number member variable from the keyboard.
+//The isPrime function should return the information whether the number member variable is prime or not. 
+//closesetPrimeNumber function should return the largest prime number closest to the object member
+
+#include <iostream>
+using namespace std;
+
+class PrimeNumber{
+	public:
+	int number;
+	
+	int inputNumber(){
+		cout << "Type a number: ";
+		cin >> number; 
+		
+	}
+	void isPrime(){
+		int counter = 0;
+		for (int i = 1; i<=number;i++){
+			if(number % i == 0)
+			counter++;
+		}
+		if (counter == 2){
+		cout << "The entered number is prime number." << endl;
+		}
+		else
+		cout << "The entered number is not prime number." << endl;	
+	}
+	int closestPrimeNumber(){
+		int counter = 0;
+		for (int i = 1; i <= number;i++){
+			if(number % i == 0)
+			counter++;	
+		}
+		do{
+			for(int i = 1;i<=number;i++){
+			if(counter != 2){
+				number++;
+				counter = 0;
+				for (int j =1; j<=number;j++){
+					if(number % j == 0)
+					counter++;
+				}
+				if (counter == 2){
+						cout << "The closest prime number to the entered number is : " << number << endl;
+				}
+			
+			}	
+		}
+	 }
+	 while(counter != 2);
+	}
+};
+
+int main(){
+ 	PrimeNumber takenNumber;
+ 	takenNumber.inputNumber();
+ 	takenNumber.isPrime();
+ 	takenNumber.closestPrimeNumber();
+
+	
+
+}
